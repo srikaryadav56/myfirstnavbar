@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+             @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
+
+            :root{
+                 --back : rgba(0, 214, 170, .85);
+            }
+
+            *, *::before, *::after {
+               box-sizing: border-box;
+            }
+
+            *{
+                margin: 0%;
+            }
+
+            header{
+                background: var(--back);
+                text-align: center;
+                position: fixed;
+                width: 100%;
+            }
+
+            h1{
+                background: var(--back);
+                padding-top: 1.2rem;
+                padding-bottom: 1.2rem;
+            }
+
+            nav{
+                position: absolute;
+                background: var(--back);
+                width: 100%;
+                transform-origin: top;
+                transform: scale(1, 0);
+                transition: transform ease-in-out 250ms;
+
+            }
+
+            nav ul{
+                text-align: left;
+                padding-left: 1.5rem;
+                padding-top: 1em;
+                opacity: 0;
+                transition: opacity 50ms ease-in-out ;
+                
+
+            }
+
+            nav li{
+                list-style: none;
+                margin-bottom: 1em;
+            }
+
+            nav li:hover{
+                border-style: solid;
+                border-width: 1.2px;
+            }
+
+            nav a{
+               text-decoration: none;
+               text-transform: uppercase;
+                color: black;
+            }
+
+            .nav-toggle{
+                display: none;
+
+            }
+
+            .nav-toggle-label{
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                padding-left: 1.5rem;
+                height: 50%;
+                top: 50%;
+                transform: translate(0% ,-50%);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: 0;
+            }
+
+            .nav-toggle:checked  ~ nav{
+                transform: scale(1,1);       
+            }
+
+            .nav-toggle:checked  ~ nav ul{
+                opacity: 1;
+                transition: opacity 250ms ease-in-out 200ms;              
+            }
+
+            .nav-toggle-label span,
+            .nav-toggle-label span::before,
+            .nav-toggle-label span::after{
+                position: relative;
+                background: black;
+                height: 2px;
+                width: 2em;
+            }
+
+            .nav-toggle-label span::after,
+            .nav-toggle-label span::before{
+                content: "";
+                position: absolute;
+                display: block;
+            }
+
+            .nav-toggle-label span::before{
+                top: 7px;
+            }
+
+            .nav-toggle-label span::after{
+                bottom: 7px;
+            }
+
+            .nav-toggle-label span:hover,
+            .nav-toggle-label span:hover::after,
+            .nav-toggle-label span:hover::before{
+                background: whitesmoke;             
+            }
+
+            .image{
+                background: #333;
+                height: 130vh;
+            }
+
+
+            
+            @media screen and (min-width:700px) {
+                .nav-toggle-label{
+                    display: none;
+                }
+
+                header{
+                    display: grid;
+                    align-items: center;
+                    grid-template-columns: 0.6fr auto minmax(500px,3fr) 0.6fr;
+                }
+
+                h1{
+                    grid-column: 2/3;
+                }
+
+                nav{
+                    all: unset;
+                    grid-column: 3/4;
+                }
+                
+                nav ul{
+                    display: flex;
+                    justify-content: flex-end;
+                    opacity: 1;
+                }
+
+                nav ul li{
+                    margin-left: 3em;
+                    margin-bottom: 0;
+                    
+                }
+
+                nav li:hover{
+                border-style: none;                
+                }
+
+                nav ul a{
+                      position: relative;                     
+                }
+
+                nav ul a::after{
+                    content: "";
+                    display: block;
+                    height: 2.5px;
+                    transform: translate(0,+200%);
+                    width: 100%;
+                    background: black;
+                    position: absolute;
+                    border-radius: 2px;
+                    transform: scale(0,1);
+                    transition: transform ease-in-out 200ms;
+                }
+
+                nav ul a:hover::after{
+                    width: 100%;
+                    transform: scale(1,1);
+                }
+            }
+
+
+        </style>
+     
+    </head>
+
+    <body>
+        <header>
+            <h1 >
+                Srikar
+            </h1>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+
+            </label>
+
+            <nav>
+                <ul>
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">settings</a></li>
+                    <li><a href="#">account</a></li>
+                    <li><a href="#">logout</a></li>
+                </ul>
+            </nav>
+    
+        </header>  
+
+        <div class="image">
+
+        </div>
+    </body>
+</html>
